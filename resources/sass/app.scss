@@ -1,0 +1,56 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.input-group-text{
+    background-color: #404040 !important;
+    color:white;
+}
+
+.post-content p{
+    font-size: 12px !important;
+}
+
+.text-blue{
+    color: #00008b !important;
+}
+
+.image-bg{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.top-day p{
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .w-md-75{
+        width: 75% !important;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        max-width: 1200px !important;
+    }
+}
+@media (max-width: 768px) {
+    .post-content{
+        margin-top: 20px;
+    }
+    .post-content p{
+        font-size: 14px !important;
+    }
+    .image-bg{
+        background-repeat: no-repeat;
+        height: 184px !important;
+        width: 65% !important;
+        margin: auto;
+    }
+}

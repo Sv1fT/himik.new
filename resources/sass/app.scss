@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+body{
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
 .input-group-text{
     background-color: #404040 !important;
     color:white;

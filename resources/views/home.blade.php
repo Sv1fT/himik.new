@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container-fluid slider">
+
+    </div>
 <div class="container">
 
     <div class="row justify-content-center">
@@ -30,9 +33,9 @@
             <div class="card shadow">
                 @foreach ($blogs as $blogs_date => $blog_content)
                     <div class="card-body pt-3 pb-1">
-                        <p class="h4">{{ $blogs_date }}</p>
+                        <p class="h5">{{ $blogs_date }}</p>
                         @foreach ($blog_content as $blog)
-                        <p class="font-weight-bold h4"><a class="text-blue" href="{{ url('blog'.$blog->slug) }}">{{ $blog->name }}</a></p>
+                        <p class="font-weight-bold h5"><a class="text-blue" href="{{ url('blog'.$blog->slug) }}">{{ $blog->name }}</a></p>
                         <p>{!! Str::limit($blog->content, 250) !!}</p>
                         <p class="w-100 text-right"><a href="blog/{{$blog->slug}}">Подробнее...</a></p>
                         <hr class="mb-0">

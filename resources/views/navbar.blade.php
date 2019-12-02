@@ -33,9 +33,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a>
                     </li>
-                    <li>
-                        |
-                    </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>

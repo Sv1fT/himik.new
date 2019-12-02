@@ -33,7 +33,7 @@
                 @foreach ($new_adverts as $key => $advert)
                     <div class="my-2 col-lg-4 col-md-6 col-sm-12 ">
                         <div class="card h-100 shadow">
-                            <img class="card-img-top" src="https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="{{ asset('storage/' . $advert->filename) }}" alt="Card image cap">
                             <div class="card-body">
                                 <div class="post-content">
                                     <p class="mb-2"><a class="text-blue font-weight-bold" href="{{ url('advert/'.$advert->slug) }}">{{ $advert->title }}</a></p>

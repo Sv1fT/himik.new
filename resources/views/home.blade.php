@@ -18,7 +18,7 @@
                     @endif
                     <div class="row">
                         <div class="col-md-3 text-center d-flex flex-wrap align-items-center" style="">
-                            <div class="w-100 h-100  image-bg" style='background-image:url({{ Storage::disk('local')->exists($top_day->filename) ? asset('storage/' . $top_day->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }})'></div>
+                            <div class="w-100 h-100  image-bg" style='background-image:url({{ Storage::disk('public')->exists($top_day->filename) ? asset('storage/' . $top_day->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }})'></div>
                         </div>
                         <div class="col-md-9 top-day">
                             <p class="mb-2 font-weight-bold"><a class="text-blue" href="{{ url('advert/'.$top_day->slug) }}">{{ $top_day->title }}</a></p>
@@ -33,7 +33,7 @@
                 @foreach ($new_adverts as $key => $advert)
                     <div class="my-2 col-lg-4 col-md-6 col-sm-12 ">
                         <div class="card h-100 shadow">
-                            <img class="card-img-top" src="{{ Storage::disk('local')->exists($advert->filename) ? asset('storage/' . $advert->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg"}}" alt="Card image cap">
+                            <img class="card-img-top" src="{{ Storage::disk('public')->exists($advert->filename) ? asset('storage/' . $advert->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg"}}" alt="Card image cap">
                             <div class="card-body">
                                 <div class="post-content">
                                     <p class="mb-2"><a class="text-blue font-weight-bold" href="{{ url('advert/'.$advert->slug) }}">{{ $advert->title }}</a></p>

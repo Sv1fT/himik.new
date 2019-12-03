@@ -69,7 +69,7 @@
             <ul class="m-auto mr-auto navbar-nav w-100">
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Главная</a>
 
-                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Товарно-сырьевая база</a>
+                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="{{ route('tsb.index') }}">Товарно-сырьевая база</a>
 
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Компании</a>
 

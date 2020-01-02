@@ -2,7 +2,26 @@
 
 @section('content')
     <div class="container-fluid slider">
+        <div class="container">
+            <h3 class="pt-3">Топ компаний</h3>
 
+            <div class="owl-carousel text-center d-block col-md-12">
+                @foreach($companies as $key => $company)
+                    @if(Illuminate\Support\Facades\Storage::disk('public')->exists($company->attributes->filename))
+                        @if($company->attributes->site != "")
+                            <a href="http://{{$company->attributes->site}}" target="_blank" rel="noreferrer">
+                                <img class="h-50 my-3" data-src="/storage/{{$company->attributes->filename}}" title="{{$company->attributes->title}}"
+                                     alt="{{$company->attributes->company}}"></a>@else
+                            <a href="/">
+                                <img class="h-50 my-3" src="/storage/{{$company->attributes->filename}}" rel="noreferrer" title="{{$company->attributes->title}}"
+                                     alt="{{$company->attributes->company}}"></a>
+                        @endif
+                    @else
+                        <img class="img-fluid h-50 my-3" src="https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" title="{{$company->title}}" alt="{{$company->company}}">
+                    @endif
+                @endforeach
+            </div>
+        </div>
     </div>
 <div class="container">
 

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Advert;
 use App\Blog;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -39,6 +41,16 @@ class HomeController extends Controller
                 return $date->created_at->formatLocalized('%d %B %Y');
             });
         });
-        return view('home',compact('top_day','new_adverts','blogs'));
+
+        $companies = Cache::remember('companies', '1800', function () {
+            return User::with('attributes')
+                ->withCount('adverts')
+                ->where('status','<','4')
+                ->where('id','!=',2)
+                ->orderBy('adverts_count','DESC')
+                ->take(15)
+                ->get();
+        });
+        return view('home',compact('top_day','new_adverts','blogs','companies'));
     }
 }

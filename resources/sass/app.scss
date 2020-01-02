@@ -6,6 +6,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~owl.carousel2/dist/assets/owl.carousel.css';
 
 body{
     font-family: Arial, Helvetica, sans-serif !important;
@@ -32,6 +33,17 @@ body{
 .top-day p{
     line-height: 1.4;
     font-size: 16px;
+}
+
+.slider {
+    width: 100%;
+    background-image: url("https://opt-himik.ru/image/backslider.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.owl-item{
+
 }
 
 @media (min-width: 768px) {

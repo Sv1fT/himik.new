@@ -15,3 +15,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::resource('blog', 'BlogController');
 Route::resource('tsb', 'TsbController');
+Route::get('company','CompanyController@index')->name('company.index');
+
+Route::prefix('admin')->group(function () {
+    Route::get('users', function () {
+        return view();
+    });
+});

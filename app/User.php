@@ -40,4 +40,9 @@ class User extends Authenticatable
     public function attributes(){
         return $this->hasOne(UserAttributes::class,'user_id');
     }
+
+    public function adverts()
+    {
+        return $this->hasMany(Advert::class);
+    }
 }

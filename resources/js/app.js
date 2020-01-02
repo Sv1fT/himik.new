@@ -3,7 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -30,3 +29,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    items: 6,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: false,
+    autoplaySpeed: 1000,
+    margin: 30,
+    nav: true,
+    navText: ["<i class='fa fa-chevron-left slide-nav slide-previous' aria-hidden='true'></i>", "<i class='fa fa-chevron-right slide-nav slide-next' aria-hidden='true'></i>"],
+    dots: false,
+})

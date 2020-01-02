@@ -71,7 +71,7 @@
 
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="{{ route('tsb.index') }}">Товарно-сырьевая база</a>
 
-                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Компании</a>
+                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="{{ route('company.index') }}">Компании</a>
 
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Блог компаний</a>
 

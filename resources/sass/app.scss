@@ -42,8 +42,10 @@ body{
     background-size: 100% 100%;
 }
 
-.owl-item{
-
+.owl-carousel .owl-item img{
+    display: block;
+    width: 165px;
+    height: 165px;
 }
 
 @media (min-width: 768px) {

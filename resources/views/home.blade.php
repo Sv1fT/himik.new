@@ -7,7 +7,7 @@
 
             <div class="owl-carousel text-center d-block col-md-12">
                 @foreach($companies as $key => $company)
-                    <img class="img-fluid h-50 my-3" src="{{ Storage::disk('public')->exists($company->attributes->filename) ? Image::url('storage/' . $company->attributes->filename ,165,165,array('')) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" rel="noreferrer" title="{{$company->attributes->title}}" alt="{{$company->attributes->company}}"></a>
+                    <img class="img-fluid my-3" src="{{ Storage::disk('public')->exists($company->attributes->filename) ? asset('storage/' . $company->attributes->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" rel="noreferrer" title="{{$company->attributes->title}}" alt="{{$company->attributes->company}}"></a>
                 @endforeach
             </div>
         </div>

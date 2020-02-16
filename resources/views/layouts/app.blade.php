@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,8 +24,12 @@
         @include('navbar')
 
         <main class="py-4">
+            <div class="flash-message container">
+                @include('flash-message')
+            </div>
             @yield('content')
         </main>
+        @stack('scripts')
         @include('footer')
     </div>
 </body>

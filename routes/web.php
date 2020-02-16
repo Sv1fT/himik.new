@@ -29,3 +29,13 @@ Route::prefix('user')->group(function (){
    Route::get('jobs','UserController@jobs')->name('user.jobs');
    Route::get('vacancy','UserController@vacancy')->name('user.vacancy');
 });
+
+Route::prefix('advert')->group(function(){
+    Route::get('show/{slug}','AdvertController@show')->name('advert.show');
+    Route::post('favorite','AdvertController@favorite')->name('advert.favorite');
+});
+
+Route::prefix('company')->group(function(){
+    Route::get('show/{id}','CompanyController@show')->name('company.show');
+    Route::post('{id}/adverts','CompanyController@adverts')->name('company.adverts');
+});

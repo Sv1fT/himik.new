@@ -5,8 +5,9 @@
  */
 require('./bootstrap');
 
-window.Vue = require('vue');
 
+window.Vue = require('vue');
+global.$ = global.jQuery = require('jquery');
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -30,16 +31,3 @@ const app = new Vue({
     el: '#app',
 });
 
-
-$('.owl-carousel').owlCarousel({
-    loop: true,
-    items: 6,
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: false,
-    autoplaySpeed: 1000,
-    margin: 30,
-    nav: true,
-    navText: ["<i class='fa fa-chevron-left slide-nav slide-previous' aria-hidden='true'></i>", "<i class='fa fa-chevron-right slide-nav slide-next' aria-hidden='true'></i>"],
-    dots: false,
-})

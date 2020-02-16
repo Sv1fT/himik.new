@@ -41,10 +41,10 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->attributes->name }} <span class="caret"></span>
+                             <span class="caret">{{ Auth::user()->attributes->name }}</span>
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <div style="z-index: 1021;" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -62,7 +62,7 @@
     </div>
 </nav>
 
-<nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm p-0">
+<nav class="navbar navbar-expand-md navbar-light bg-dark shadow-sm p-0 sticky-top">
     <div class="container">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->

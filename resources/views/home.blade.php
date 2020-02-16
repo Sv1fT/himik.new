@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid slider">
+    <div class="container-fluid d-none d-xl-block slider">
         <div class="container">
             <h3 class="pt-3">Топ компаний</h3>
 
@@ -44,7 +44,7 @@
                             <img class="card-img-top" src="{{ Storage::disk('public')->exists($advert->filename) ? asset('storage/' . $advert->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg"}}" alt="Card image cap">
                             <div class="card-body">
                                 <div class="post-content">
-                                    <p class="mb-2"><a class="text-blue font-weight-bold" href="{{ url('advert/'.$advert->slug) }}">{{ $advert->title }}</a></p>
+                                    <p class="mb-2"><a class="text-blue font-weight-bold" href="{{ route('advert.show',$advert->slug) }}">{{ $advert->title }}</a></p>
                                     <p class="mb-2">Описание: {{ Illuminate\Support\Str::limit($advert->content, 60) }}</p>
                                     <p class="mb-2">Добавлено: {{ $advert->create_date }}</p>
                                     <p class="mb-2"><b>Цена: {{ $advert->types->first()->price ?? ''}}</b></p>
@@ -67,7 +67,7 @@
                         @foreach ($blog_content as $blog)
                             <p class="font-weight-bold h5"><a class="text-blue" href="{{ url('blog'.$blog->slug) }}">{{ $blog->name }}</a></p>
                             <p>{!! Illuminate\Support\Str::limit($blog->content, 250) !!}</p>
-                            <p class="w-100 text-right"><a href="blog/{{$blog->slug}}">Подробнее...</a></p>
+                            <p class="w-100 text-right"><a href="blog/{{$blog->slug}}">Читать далее...</a></p>
                             <hr class="mb-0">
                         @endforeach
                     </div>

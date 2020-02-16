@@ -16,4 +16,24 @@ class Advert extends Model
     {
         return $this->hasMany(Advert_type::class);
     }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class,'region_id','id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class,'city_id','id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class,'country_id','id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

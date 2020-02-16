@@ -22,3 +22,10 @@ Route::prefix('admin')->group(function () {
         return view();
     });
 });
+
+Route::prefix('user')->group(function (){
+   Route::get('profile','UserController@profile')->name('user.profile');
+   Route::get('adverts','UserController@adverts')->name('user.adverts');
+   Route::get('jobs','UserController@jobs')->name('user.jobs');
+   Route::get('vacancy','UserController@vacancy')->name('user.vacancy');
+});

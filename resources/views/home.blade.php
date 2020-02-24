@@ -29,7 +29,7 @@
                             <img class="img-fluid" src="{{ Storage::disk('public')->exists($top_day->filename) ? asset('storage/' . $top_day->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" />
                         </div>
                         <div class="col-md-9 top-day">
-                            <p class="mb-2 font-weight-bold"><a class="text-blue" href="{{ url('advert/'.$top_day->slug) }}">{{ $top_day->title }}</a></p>
+                            <p class="mb-2 font-weight-bold"><a class="text-blue" href="{{ route('advert.show',$top_day->slug) }}">{{ $top_day->title }}</a></p>
                             <p class="mb-2">Описание: {{ Illuminate\Support\Str::limit($top_day->content, 120) }}</p>
                             <p class="mb-2 float-right">Просмотров: {{ $top_day->views_day }}</p>
                         </div>
@@ -78,3 +78,20 @@
     </div>
 </div>
 @endsection
+@push('scripts')
+    <script>
+
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            items: 6,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: false,
+            autoplaySpeed: 1000,
+            margin: 30,
+            nav: false,
+            navText: ["<i class='fa fa-chevron-left slide-nav slide-previous' aria-hidden='true'></i>", "<i class='fa fa-chevron-right slide-nav slide-next' aria-hidden='true'></i>"],
+            dots: false,
+        })
+    </script>
+@endpush

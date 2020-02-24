@@ -45,4 +45,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Advert::class);
     }
+
+    public function favorite_adverts()
+    {
+        return $this->hasMany(UserFavoriteAdverts::class);
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(UserMessages::class);
+    }
 }

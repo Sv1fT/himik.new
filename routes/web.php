@@ -23,11 +23,15 @@ Route::prefix('admin')->group(function () {
     });
 });
 
-Route::prefix('user')->group(function (){
+Route::prefix('user')->middleware(['auth'])->group(function (){
    Route::get('profile','UserController@profile')->name('user.profile');
-   Route::get('adverts','UserController@adverts')->name('user.adverts');
-   Route::get('jobs','UserController@jobs')->name('user.jobs');
-   Route::get('vacancy','UserController@vacancy')->name('user.vacancy');
+   Route::get('advert','UserController@advert')->name('user.advert');
+   Route::get('summary','UserController@summary')->name('user.summary');
+   Route::get('vacant','UserController@vacant')->name('user.vacant');
+   Route::get('blog','UserController@blog')->name('user.blog');
+   Route::get('advertiments','UserController@advertiments')->name('user.advertiments');
+   Route::get('favorites','UserController@favorites')->name('user.favorites');
+   Route::get('messages','UserController@messages')->name('user.messages');
 });
 
 Route::prefix('advert')->group(function(){

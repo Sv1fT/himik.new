@@ -14,7 +14,7 @@
             <div class="col-md-5">
                 <div class="card">
                     <small class="p-3 text-muted">Обновлено: {{ \Carbon\Carbon::parse($advert->created_at)->isoFormat('Do MMMM YYYY HH:mm') }}
-                        @if(!empty($advert->favorite) and $advert->favorite->user_id = Auth::id())<i id="favorite_del" class="fa fa-heart text-danger float-right" @else <i id="favorite" class="fa fa-heart-o float-right"  @endif style="font-size:17px !important" aria-hidden="true"></i>
+                        @if(!empty($advert->favorite) and $advert->favorite->user_id = Auth::id() and $advert->favorite->advert_id = $advert->id)<i id="favorite_del" class="fa fa-heart text-danger float-right" @else <i id="favorite" class="fa fa-heart-o float-right"  @endif style="font-size:17px !important" aria-hidden="true"></i>
                     </small>
                     <p class="pl-3 pr-3 h4 text-blue">{{ $advert->title }}</p>
                     <p class="pl-3 pr-3 text-muted m-0">Оптовая цена</p>

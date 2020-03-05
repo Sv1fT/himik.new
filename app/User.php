@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Observers\UserObserver;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -54,5 +55,12 @@ class User extends Authenticatable
     public function messages()
     {
         return $this->hasMany(UserMessages::class);
+    }
+
+    public static function boot() {
+
+        parent::boot();
+
+        parent::observe(new UserObserver());
     }
 }

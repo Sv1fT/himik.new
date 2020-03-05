@@ -12,6 +12,11 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        return view('user.index');
+    }
+
     public function profile()
     {
         $user = Auth::user()->attributes;
@@ -25,8 +30,13 @@ class UserController extends Controller
         return view('user.profile',compact('user'));
     }
 
-    public function messages() 
+    public function messages()
     {
-        $messages = 
+        $messages = 1;
+    }
+
+    public function advert()
+    {
+        return view('user.profile');
     }
 }

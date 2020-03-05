@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use App\Advert_type;
 class Advert extends Model
 {
+    protected $fillable = ['status'];
+
     public function getCreateDateAttribute()
     {
         return Carbon::parse($this->created_at)->formatLocalized('%d %B %Y');
@@ -40,5 +42,19 @@ class Advert extends Model
     public function favorite()
     {
         return $this->hasOne(UserFavoriteAdverts::class);
+    }
+
+    public function get_currencies() {
+        $xml = simplexml_load_file('http://cbr.ru/scripts/XML_daily.asp');
+        $currencies = array();
+        foreach ($xml->xpath('//Valute') as $valute) {
+            $currencies[(string)$valute->CharCode] = (float)str_replace(',', '.', $valute->Value);
+        }
+        return $currencies;
+    }
+
+    public function statuses()
+    {
+        return $this->hasOne(Status::class,'id','status');
     }
 }

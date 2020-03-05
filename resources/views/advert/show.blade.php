@@ -70,7 +70,7 @@
 
 @endsection
 @push('scripts')
-    <script>
+        <script async>
         $('#favorite').on('click',function(e){
             e.preventDefault;
             var id = "{{ $advert->id }}";

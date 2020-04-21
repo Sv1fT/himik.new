@@ -120,10 +120,10 @@
                 cities:[]
             }
         },
-        mounted() {
+        async mounted() {
             console.log(this.$root);
 
-            axios.get('/api/v1/user/profile/'+ this.$root.user_id)
+            await axios.get('/api/v1/user/profile/'+ this.$root.user_id)
                 .then(resp => (
                     this.fields = resp.data
                 ))

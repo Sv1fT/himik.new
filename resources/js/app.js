@@ -1,14 +1,14 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-require('./bootstrap');
+// /**
+//  * First we will load all of this project's JavaScript dependencies which
+//  * includes Vue and other libraries. It is a great starting point when
+//  * building robust, powerful web applications using Vue and Laravel.
+//  */
+ require('./bootstrap');
 
 
 import Vue from 'vue';
 import VueToast from 'vue-toast-notification';
-global.$ = global.jQuery = require('jquery');
+window.$ = window.jQuery = require('jquery')
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 Vue.use(VueToast, {
@@ -31,6 +31,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 Vue.component('sidebar', require('./components/users/sidebar.vue'));
 Vue.component('image-upload', require('./components/image/ImageUpload'));
 Vue.component('pagination', require('laravel-vue-pagination'));
+Vue.component('advert-sidebar', require('./components/adverts/Sidebar.vue').default);
+Vue.component('advert-component', require('./components/adverts/Advert.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

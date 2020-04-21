@@ -56,11 +56,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(UserMessages::class);
     }
-
-    public static function boot() {
-
-        parent::boot();
-
-        parent::observe(new UserObserver());
-    }
 }

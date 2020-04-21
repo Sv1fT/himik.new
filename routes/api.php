@@ -25,5 +25,9 @@ Route::group(['prefix' => '/v1',
     Route::any('/user/advert/edit/{id}','UserController@advert_edit')->name('api.user.advert_edit');
     Route::post('/user/profile/save/{id}','UserController@store')->name('api.user.profile.save');
 
+    Route::get('/adverts','AdvertController@index')->name('api.adverts');
+    Route::get('/categories','CategoryController@index')->name('api.categories');
+    Route::get('/categories/{category:id}','CategoryController@show')->name('api.categories.subcategory');
+
     Route::post('/city/{name}','CityController@show')->name('api.city.show');
 });

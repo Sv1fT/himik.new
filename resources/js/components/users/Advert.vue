@@ -39,9 +39,9 @@
                 adverts: []
             }
         },
-        mounted() {
+        async mounted() {
 
-        axios.get('/api/v1/user/adverts/'+ this.$root.user_id)
+        await axios.get('/api/v1/user/adverts/'+ this.$root.user_id)
             .then(resp => (
                 this.adverts = resp.data
             ))

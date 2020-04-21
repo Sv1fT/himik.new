@@ -37,6 +37,8 @@ class UserController extends Controller
 
         $user->attributes()->update($request->get('attributes'));
 
+
+
         if ($user->save())
         {
             return response()->json(['message'=>'Ваш профиль сохранен!','type'=>'success'],'200');

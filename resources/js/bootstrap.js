@@ -1,5 +1,5 @@
 window._ = require('lodash');
-import $ from 'jquery';
+window.$ = window.jQuery = require('jquery');
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -8,10 +8,8 @@ import $ from 'jquery';
 
 try {
     window.Popper = require('popper.js').default;
-    require('owl.carousel2');
     require('bootstrap');
 } catch (e) {}
-
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the

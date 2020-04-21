@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         setlocale(LC_TIME, 'ru_RU.UTF-8');
-        Carbon::setLocale(config('app.locale'));
+        \Carbon\Carbon::setLocale('ru');
     }
 }

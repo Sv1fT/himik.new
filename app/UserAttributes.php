@@ -6,18 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserAttributes extends Model
 {
-    public function region_id()
+    public function region()
     {
-        return $this->belongsTo(Region::class,'region','id');
+        return $this->hasOne(Region::class,'id','region_id');
     }
 
-    public function city_id()
+    public function city()
     {
-        return $this->belongsTo(City::class,'city','id');
+        return $this->hasOne(City::class,'id','city_id');
     }
 
-    public function country_id()
+    public function country()
     {
-        return $this->belongsTo(Country::class,'country','id');
+        return $this->hasOne(Country::class,'id','country_id');
     }
 }

@@ -7,7 +7,7 @@
 
             <div class="owl-carousel text-center d-block col-md-12">
                 @foreach($companies as $key => $company)
-                    <img class="img-fluid my-3" src="{{ Storage::disk('public')->exists($company->attributes->filename) ? asset('storage/' . $company->attributes->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" rel="noreferrer" title="{{$company->attributes->title}}" alt="{{$company->attributes->company}}"></a>
+                    <img class="img-fluid my-3" src="{{ Storage::disk('public')->exists($company->attributes->filename) ? asset('storage/' . $company->attributes->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" rel="noreferrer" title="{{$company->attributes->title}}" alt="{{$company->attributes->company}}">
                 @endforeach
             </div>
         </div>
@@ -25,7 +25,7 @@
                         </div>
                     @endif
                     <div class="row">
-                        <div class="col-md-3 text-center d-flex flex-wrap align-items-center" style="">
+                        <div class="col-md-3 text-center d-flex flex-wrap align-items-center">
                             <img class="img-fluid" src="{{ Storage::disk('public')->exists($top_day->filename) ? asset('storage/' . $top_day->filename) : "https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg" }}" />
                         </div>
                         <div class="col-md-9 top-day">
@@ -78,20 +78,4 @@
     </div>
 </div>
 @endsection
-@push('scripts')
-    <script>
 
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            items: 6,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: false,
-            autoplaySpeed: 1000,
-            margin: 30,
-            nav: false,
-            navText: ["<i class='fa fa-chevron-left slide-nav slide-previous' aria-hidden='true'></i>", "<i class='fa fa-chevron-right slide-nav slide-next' aria-hidden='true'></i>"],
-            dots: false,
-        })
-    </script>
-@endpush

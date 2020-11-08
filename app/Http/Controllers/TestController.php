@@ -31,11 +31,6 @@ class TestController extends Controller
         Carbon::setLocale('ru');
         $dt = Carbon::createFromFormat('Y-m-d H:i:s',$advert[0]->created_at)->diffForHumans();
 
-
-
-
-
-
         dd($dt);
 
     }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class AdvertController extends Controller
 {
@@ -25,20 +26,21 @@ class AdvertController extends Controller
      */
     public function index(Request $request)
     {
-        $adverts = Advert::query()->active()->with('types','statuses');
-        if($request->category != ''){
-            $adverts->whereCategory_id($request->category);
-        }elseif($request->subcategory != ''){
-            $adverts->whereSubcategory_id($request->subcategory);
-        }elseif($request->price != '' or $request->price_to != ''){
-            $adverts->whereCategory_id();
-        }elseif($request->region != ''){
-            $adverts->whereRegion_id($request->region);
-        }elseif($request->type != ''){
-            $adverts->whereShow($request->type);
+        $adverts = Advert::active()
+        ->category($request->category)
+        ->subcategory($request->subcategory)
+        ->price($request->price)
+        ->region($request->region)
+        ->show($request->type)
+        ->with('types','statuses')
+        ->paginate(24);
+
+        // dd($adverts);
+        foreach($adverts as $advert){
+            $advert->filename = Storage::disk('public')->exists($advert->filename) ? '/storage/'.$advert->filename : 'https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg';
         }
 
-        return $adverts->orderBy('created_at','desc')->paginate(24);
+        return $adverts;
     }
 
     /**

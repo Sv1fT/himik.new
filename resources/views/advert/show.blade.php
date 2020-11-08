@@ -13,6 +13,7 @@
         </div>
         <div class="modal-body">
             <div class="company col-md-12 text-center">
+
                 <img class="img-fluid" width="70px" height="70px" src="{{ Storage::disk('public')->exists($advert->user->attributes->filename) ? asset('storage/' . $advert->user->attributes->filename) : "/images/no-avatar.png"}}" alt="">
                 <p class="m-0 text-center">{{ $advert->user->attributes->name }}</p>
                 <p class="m-0 text-center"><small class="text-muted text-center">Должность</small></p>

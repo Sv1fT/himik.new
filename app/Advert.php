@@ -6,7 +6,6 @@ use App\User;
 class Advert extends Model
 {
     protected $fillable = ['title', 'content', 'price', 'type', 'mass', 'user_id', 'category', 'status', 'subcategory', 'sity', 'region', 'number', 'email', 'show','filename'];
-    protected $table = 'advert';
 
     protected $timestamp = false;
 
@@ -19,9 +18,29 @@ class Advert extends Model
         return $query->where('status',1);
     }
 
+    public function scopeCategory($query,$category) {
+        return !empty($category) ? $query->where('category_id',$category) : null;
+    }
+
+    public function scopeSubcategory($query,$subcategory) {
+        return !empty($subcategory) ? $query->where('subcategory_id',$subcategory) : null;
+    }
+
+    public function scopePrice($query,$price) {
+        return !empty($price) ? $query->where('price',$price) : null;
+    }
+
+    public function scopeRegion($query,$region) {
+        return !empty($region) ? $query->where('region_id',$region) : null;
+    }
+
+    public function scopeShow($query,$show) {
+        return $show ? $query->where('show',$show) : null;
+    }
+
     public function types()
     {
-        return $this->hasMany(Advert_type::class);
+        return $this->hasMany(Advert_types::class);
     }
 
     public function region()

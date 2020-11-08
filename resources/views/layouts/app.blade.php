@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="user-id" content="{{ Auth::id() }}">
+    <meta name="yandex-verification" content="d60985cf5c70de09" />
     {{-- {!! SEO::generate() !!} --}}
 
     <title>{{ config('app.name', 'Laravel') }}</title>

@@ -10,6 +10,7 @@
                             <li class="row border-bottom mb-2" v-for="category in categories" v-bind:key="category.id">
                                 <span class="col-1">
                                     <input :id="'category_'+category.id" v-on:change.prevent="subcat(category.id)" :disabled="category_ids != category.id && category_ids >= 1"  type="checkbox">
+                                    <label :for="'category_'+category.id">{{category.name}}</label>
                                     </span>
                                 <span class="col-10"><label :for="'category_'+category.id">{{category.title}}</label></span>
                             </li>

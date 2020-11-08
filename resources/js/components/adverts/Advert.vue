@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-3">
-                        <img :src="/storage/+advert.filename" class="img-fluid" alt="">
+                        <img :src="advert.filename" class="img-fluid" alt="">
                     </div>
                     <div class="col-9">
                         <p>{{ advert.content.substr(0,200) }}</p>
@@ -32,6 +32,7 @@
     export default {
 
         props: {
+            image: '',
             adverts_sidebar :{},
             category_id:'',
             subcategory_id:''
@@ -41,7 +42,7 @@
             getResults(page = 1) {
                 axios.get('/api/v1/adverts?page=' + page)
                     .then(response => {
-                        this.adverts = response;
+                        this.adverts_sidebar = response.data;
                     });
             },
             type: function(id) {
@@ -51,7 +52,7 @@
                         this.adverts_sidebar = resp.data
                     ))
                     .catch(function (resp) {
-                        console.log(resp);
+                        //console.log(resp);
                         alert("Could not create your company");
                     });
                 }else{
@@ -60,10 +61,22 @@
                         this.adverts_sidebar = resp.data
                     ))
                     .catch(function (resp) {
-                        console.log(resp);
+                        //console.log(resp);
                         alert("Could not create your company");
                     });
                 }
+            },
+            loadImage: function(image,advert) {
+                axios.get('http://himik/storage/'+image)
+                .then(resp => (
+                    advert.filename = image
+                ))
+                .catch(function (err) {
+                    if (err.response.status = 404) {
+                        //console.error(err.response.status)
+                        advert.filename = 'https://image.freepik.com/free-vector/error-404-found-glitch-effect_8024-4.jpg'
+                    }
+                });
             }
         }
     }

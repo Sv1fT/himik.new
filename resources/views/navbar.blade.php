@@ -70,7 +70,7 @@
             <ul class="m-auto mr-auto navbar-nav w-100">
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="/">Главная</a>
 
-                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="{{ route('advert.index') }}">Объявления</a>
+                <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100 {{ Request::is('advert') ? 'active' : null }}" href="{{ route('advert.index') }}">Объявления</a>
 
                 <a class="d-block h-100 nav-header-a py-3 text-center text-white w-100" href="{{ route('company.index') }}">Компании</a>
 

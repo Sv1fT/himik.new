@@ -58,7 +58,7 @@
                             <p class="m-0 text-center mt-5">{{ $advert->user->attributes->name }}</p>
                             <p class="m-0 text-center"><small class="text-muted text-center">Должность</small></p>
                             <hr>
-                            <p class="mb-2 text-center h5"><a href="{{ route('company.show', $advert->user->id) }}">{{ $advert->user->attributes->company }}</a>, {{ $advert->user->attributes->city->name }}</p>
+                            <p class="mb-2 text-center h5"><a href="{{ route('company.show', $advert->user->id) }}">{{ $advert->user->attributes->company }}</a>, {{ $advert->user->attributes->cities?->name }}</p>
                             <p class="mb-2 text-center text-muted"><small>На ОПТхимик с {{ \Carbon\Carbon::parse($advert->user->attributes->created_at)->isoFormat('Do MMMM YYYY') }}</small></p>
                             <p class="mb-2 text-center "><a href="{{ route('company.adverts', $advert->user->id) }}">Все объявления компании: </a>{{ count($advert->user->adverts) }}</p>
                         </div>
@@ -98,7 +98,7 @@
                                 <span class="col-8">
                                     <h3><a class="text-blue h5" href="{{ route('advert.show',$advert->slug) }}">{{ $advert->title }}</a></h3>
                                 <h5>{{ !empty($advert->types->first()->price) ? preg_replace('/[^\d\-]/','',$advert->types->first()->price) : 'Не указана' }} {{ !empty($advert->types->first()->valute) ? $advert->types->first()->valutes : '' }}</h5>
-                                <small class="text-muted mb-2">{{ $advert->user->attributes->company }}, {{ $advert->user->attributes->city->name }}, Объявления +{{ count($advert->user->adverts) }}</small>
+                                <small class="text-muted mb-2">{{ $advert->user->attributes->company }}, {{ $advert->user->attributes->cities?->name }}, Объявления +{{ count($advert->user->adverts) }}</small>
                                 <p class="mt-2 mb-0">{{ Illuminate\Support\Str::limit($advert->content, 160) }}</p>
                                 </span>
                             </div>

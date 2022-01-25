@@ -61,7 +61,7 @@ class HomeController extends Controller
         	});
 
 	        $new_adverts = Cache::remember('new_adverts', '1', function () {
-	            return Advert::with('types')->where(['status'=> 1, 'show'=>1])->orderBy('created_at','desc')->take(9)->get();
+	            return Advert::where(['status'=> 1, 'show'=>1])->orderBy('created_at','desc')->take(9)->get();
 	        });
 
 	        $blogs = Cache::remember('blogs', '1', function () {

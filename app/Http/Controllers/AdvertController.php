@@ -82,7 +82,7 @@ class AdvertController extends Controller
             }
 
 
-        $similar_adverts = $advert->with('user.attributes','user.attributes.city','user.adverts')->when(!empty($title),function($query) use ($title){
+        $similar_adverts = $advert->with('user.attributes','user.attributes.cities','user.adverts')->when(!empty($title),function($query) use ($title){
             $query->where('title','LIKE','%'.$title[0].'%');
             if(count($title) > 1){
                 foreach ($title as $item){

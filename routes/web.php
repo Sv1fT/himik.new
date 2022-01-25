@@ -12,6 +12,8 @@
     */      #Главная страница
 
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Route;
+
 if (App::environment('production', 'staging')) {
     //URL::forceScheme('https');
 }
